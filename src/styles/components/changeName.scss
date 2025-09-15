@@ -1,0 +1,49 @@
+.changeName {
+  button {
+    border: 2px solid #00bc77;
+    background-color: #00bc77;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+
+    div {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+
+      label {
+        display: none;
+      }
+
+      input {
+        width: 200px;
+        height: 40px;
+        padding-left: 14px;
+        font-size: large;
+        border: 2px solid var(--border);
+        border-radius: 3px;
+
+        &::placeholder {
+          color: var(--textPlaceholder);
+          opacity: 1;
+        }
+      }
+
+      button {
+        width: 120px;
+        height: 34.5px;
+        padding: 0;
+        color: var(--textButton);
+        background-color: white;
+        border: 2px solid var(--borderButton);
+        border-radius: 3px;
+      }
+    }
+  }
+}
