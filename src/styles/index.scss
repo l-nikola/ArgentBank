@@ -1,10 +1,12 @@
 /* *********** Imports ********** */
 @use "./components/header.scss";
+@use "./components/footer.scss";
 
 /* *********** Variables ********** */
 :root {
   --backgroundGrey: #e0e6ee;
   --text: #273945;
+  --border: #c3cfd9;
 }
 
 /* *********** Global Styles ********** */
