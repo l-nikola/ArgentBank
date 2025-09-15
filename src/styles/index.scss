@@ -4,6 +4,7 @@
 /* *********** Variables ********** */
 :root {
   --backgroundGrey: #e0e6ee;
+  --text: #273945;
 }
 
 /* *********** Global Styles ********** */
@@ -19,4 +20,8 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--backgroundGrey);
+}
+
+a {
+  text-decoration: none;
 }
