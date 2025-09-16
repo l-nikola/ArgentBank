@@ -2,6 +2,7 @@
 @use "./components/header.scss";
 @use "./components/footer.scss";
 @use "./components/changeName.scss";
+@use "./components/bankAccount.scss";
 
 /* *********** Variables ********** */
 :root {
@@ -11,6 +12,7 @@
   --textPlaceholder: #c3cfd9;
   --borderButton: #b3b3f1;
   --textButton: #7a6ef6;
+  --button: #6458f6;
 }
 
 /* *********** Global Styles ********** */
