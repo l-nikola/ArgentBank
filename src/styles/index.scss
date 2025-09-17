@@ -4,6 +4,7 @@
 @use "./components/changeName.scss";
 @use "./components/bankAccount.scss";
 @use "./components/bankAccountDetail.scss";
+@use "./components/collapse.scss";
 
 /* *********** Variables ********** */
 :root {
@@ -14,6 +15,7 @@
   --borderButton: #b3b3f1;
   --textButton: #7a6ef6;
   --button: #6458f6;
+  --icon: #4c5c6b;
 }
 
 /* *********** Global Styles ********** */
