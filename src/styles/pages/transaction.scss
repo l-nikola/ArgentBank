@@ -1,0 +1,28 @@
+.transaction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 142px;
+  margin-bottom: 34px;
+
+  section {
+    .title {
+      display: flex;
+      line-height: 0;
+      font-weight: 700;
+
+      &__date {
+        margin-left: 105px;
+        margin-right: 150px;
+      }
+
+      &__description {
+        margin-right: 90px;
+      }
+
+      &__amount {
+        margin-right: 60px;
+      }
+    }
+  }
+}
