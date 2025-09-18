@@ -8,7 +8,6 @@ import Collapse from "../../components/Collapse";
 export default function Home() {
   return (
     <>
-      <Header />
       {/* Home page */}
       {/* <h1>Welcome back</h1>
       <ChangeName />
@@ -32,7 +31,6 @@ export default function Home() {
         category="Food"
         note=""
       />
-      <Footer />
     </>
   );
 }
