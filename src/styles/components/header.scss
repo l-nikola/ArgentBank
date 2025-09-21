@@ -49,3 +49,46 @@ header {
     }
   }
 }
+
+/* *********** Responsive ********** */
+/* *********** Tablet ********** */
+@media (max-width: 767px) {
+  header {
+    img {
+      width: 150px;
+    }
+
+    nav ul a {
+      font-size: 14px;
+
+      i.fa-user {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}
+
+/* *********** Mobile ********** */
+@media (max-width: 424px) {
+  header {
+    img {
+      width: 125px;
+    }
+
+    nav ul a {
+      font-size: 12px;
+
+      i.fa-user {
+        font-size: 16px;
+        width: 25px;
+        height: 25px;
+      }
+
+      i.fa-arrow-right-to-bracket,
+      i.fa-arrow-right-from-bracket {
+        font-size: 20px;
+      }
+    }
+  }
+}
