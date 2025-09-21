@@ -49,3 +49,13 @@
     }
   }
 }
+
+/* *********** Responsive ********** */
+/* *********** Mobile ********** */
+@media (max-width: 767px) {
+  .changeName {
+    form div input {
+      width: 150px;
+    }
+  }
+}
