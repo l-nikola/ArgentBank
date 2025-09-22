@@ -1,7 +1,7 @@
 import ChangeName from "../../components/ChangeName";
 import BankAccount from "../../components/BankAccount";
 
-export default function EditName() {
+export default function Profile() {
   return (
     <main className="editName">
       <h1>Welcome back</h1>

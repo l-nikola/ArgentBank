@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./styles/index.scss";
 import Login from "./pages/Login";
 import Home from "./pages/Home/";
-import EditName from "./pages/EditName";
+import Profile from "./pages/Profile";
 import Transaction from "./pages/Transaction";
 import Error from "./pages/Error";
 import Header from "./components/Header";
@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Header />
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/edit-name" element={<EditName />} />
+      <Route path="/profile" element={<Profile />} />
       <Route path="/transaction" element={<Transaction />} />
       <Route path="/login" element={<Login />} />
       <Route path="*" element={<Error />} />
