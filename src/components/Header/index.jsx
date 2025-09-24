@@ -1,4 +1,19 @@
+import { useSelector, useDispatch } from "react-redux";
+import { clearUser } from "../../store/userSlice";
+import { useNavigate } from "react-router-dom";
+
 export default function Header() {
+  const firstName = useSelector((state) => state.user.firstName);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    dispatch(clearUser());
+    localStorage.removeItem("token");
+    sessionStorage.removeItem("token");
+    navigate("/login");
+  };
+
   return (
     <header>
       <a href="/">
@@ -7,23 +22,26 @@ export default function Header() {
       <nav>
         <ul>
           <li>
-            <a href="./sign-in.html">
+            <a href={firstName ? "/profile" : "/login"}>
               <i className="fa-solid fa-user"></i>
-              Name
+              {firstName ? firstName : "Name"}
             </a>
           </li>
-          <li>
-            <a href="./sign-in.html">
-              <i className="fa-solid fa-arrow-right-to-bracket"></i>
-              Sign In
-            </a>
-          </li>
-          {/* <li>
-          <a href="./sign-in.html">
-          <i className="fa-solid fa-arrow-right-from-bracket"></i>
-          Sign Out
-          </a>
-          </li> */}
+          {firstName ? (
+            <li>
+              <a href="#" onClick={handleSignOut}>
+                <i className="fa-solid fa-arrow-right-from-bracket"></i>
+                Sign Out
+              </a>
+            </li>
+          ) : (
+            <li>
+              <a href="/login">
+                <i className="fa-solid fa-arrow-right-to-bracket"></i>
+                Sign In
+              </a>
+            </li>
+          )}
         </ul>
       </nav>
     </header>

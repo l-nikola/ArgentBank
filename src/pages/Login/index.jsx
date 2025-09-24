@@ -1,22 +1,71 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loginUser, getUserProfile } from "../../services/api";
+import { setUser } from "../../store/userSlice";
+
 export default function Login() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [remember, setRemember] = useState(false);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const token = await loginUser(username, password);
+      const profile = await getUserProfile(token);
+      dispatch(
+        setUser({
+          firstName: profile.firstName,
+          lastName: profile.lastName,
+          token: token,
+        })
+      );
+      navigate("/");
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
   return (
     <main className="login">
       <i className="fa fa-user-circle"></i>
       <h1>Sign In</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="wrapper">
           <label htmlFor="username">Username</label>
-          <input type="text" id="username" />
+          <input
+            type="text"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            autoComplete="username"
+          />
         </div>
         <div className="wrapper">
           <label htmlFor="password">Password</label>
-          <input type="password" id="password" />
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete="current-password"
+          />
         </div>
         <div className="remember">
-          <input type="checkbox" id="remember-me" />
+          <input
+            type="checkbox"
+            id="remember-me"
+            checked={remember}
+            onChange={(e) => setRemember(e.target.checked)}
+          />
           <label htmlFor="remember-me">Remember me</label>
         </div>
-        <button>Sign In</button>
+        {error && <div className="errorMessage">{error}</div>}
+        <button type="submit">Sign In</button>
       </form>
     </main>
   );
