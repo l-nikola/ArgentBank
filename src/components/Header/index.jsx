@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { clearUser } from "../../store/userSlice";
 import { useNavigate } from "react-router-dom";
+import Profile from "../../pages/Profile";
 
 export default function Header() {
   const firstName = useSelector((state) => state.user.firstName);
@@ -9,9 +10,11 @@ export default function Header() {
 
   const handleSignOut = () => {
     dispatch(clearUser());
-    localStorage.removeItem("token");
-    sessionStorage.removeItem("token");
     navigate("/login");
+  };
+
+  const handleProfile = () => {
+    firstName ? navigate("/profile") : navigate("/login");
   };
 
   return (
@@ -22,7 +25,7 @@ export default function Header() {
       <nav>
         <ul>
           <li>
-            <a href={firstName ? "/profile" : "/login"}>
+            <a onClick={handleProfile}>
               <i className="fa-solid fa-user"></i>
               {firstName ? firstName : "Name"}
             </a>
