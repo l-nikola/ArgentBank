@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Header() {
   const firstName = useSelector((state) => state.user.firstName);
+  const token = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -13,7 +14,11 @@ export default function Header() {
   };
 
   const handleProfile = () => {
-    firstName ? navigate("/profile") : navigate("/login");
+    if (firstName && token) {
+      navigate("/profile");
+    } else {
+      navigate("/login");
+    }
   };
 
   return (
