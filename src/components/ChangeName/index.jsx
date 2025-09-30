@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function ChangeName() {
+  const lastName = useSelector((state) => state.user.lastName);
+  const firstName = useSelector((state) => state.user.firstName);
   const [edit, setEdit] = useState(false);
 
   const handleSubmit = (e) => {
@@ -17,19 +20,19 @@ export default function ChangeName() {
       {edit && (
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="firstName">firstName</label>
+            <label htmlFor="firstName">{firstName}</label>
             <input
               type="text"
               id="firstName"
               name="firstName"
-              placeholder="First"
+              placeholder={firstName}
             />
-            <label htmlFor="lasttName">lastName</label>
+            <label htmlFor="lasttName">{lastName}</label>
             <input
               type="text"
               id="lasttName"
               name="lasttName"
-              placeholder="Last"
+              placeholder={lastName}
             />
           </div>
           <div>
