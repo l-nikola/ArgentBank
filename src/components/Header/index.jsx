@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { clearUser } from "../../store/userSlice";
 import { useNavigate } from "react-router-dom";
-import Profile from "../../pages/Profile";
 
 export default function Header() {
   const firstName = useSelector((state) => state.user.firstName);

@@ -25,6 +25,24 @@ export default function Transaction() {
           category="Food"
           note=""
         />
+        <Collapse
+          date="June 20th, 2020"
+          description="Golden Sun Bakery"
+          amount="5.00"
+          balance={2082.79}
+          transactionType="Electronic"
+          category="Food"
+          note="Note"
+        />
+        <Collapse
+          date="June 20th, 2020"
+          description="Golden Sun Bakery"
+          amount="5.00"
+          balance={2082.79}
+          transactionType="Electronic"
+          category="Food"
+          note=""
+        />
       </section>
     </main>
   );

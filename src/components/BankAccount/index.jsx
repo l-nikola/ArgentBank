@@ -1,4 +1,11 @@
+import { useNavigate } from "react-router-dom";
+
 export default function BankAccount({ account, amount, balance }) {
+  const navigate = useNavigate();
+
+  const handleTransaction = () => {
+    navigate("/transaction");
+  };
   return (
     <section className="bankAccount">
       <div>
@@ -6,7 +13,7 @@ export default function BankAccount({ account, amount, balance }) {
         <p className="amount">${amount}</p>
         <p className="balance">{balance}</p>
       </div>
-      <button>View transactions</button>
+      <button onClick={handleTransaction}>View transactions</button>
     </section>
   );
 }
