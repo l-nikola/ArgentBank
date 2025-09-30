@@ -13,6 +13,10 @@ export default function Header() {
     navigate("/login");
   };
 
+  const handleLogo = () => {
+    navigate("/");
+  };
+
   const handleProfile = () => {
     if (firstName && token) {
       navigate("/profile");
@@ -23,7 +27,7 @@ export default function Header() {
 
   return (
     <header>
-      <a href="/">
+      <a onClick={handleLogo}>
         <img src="/images/argentBankLogo.png" alt="Argent Bank Logo" />
       </a>
       <nav>
