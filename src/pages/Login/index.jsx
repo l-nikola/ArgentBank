@@ -12,8 +12,8 @@ export default function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (formSubmit) => {
+    formSubmit.preventDefault();
     try {
       const token = await loginUser(username, password);
       const profile = await getUserProfile(token);
@@ -25,8 +25,8 @@ export default function Login() {
         })
       );
       navigate("/");
-    } catch (err) {
-      setError(err.message);
+    } catch (error) {
+      setError(error.message);
     }
   };
 
