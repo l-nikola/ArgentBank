@@ -8,9 +8,10 @@ export default function Header() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSignOut = () => {
+  const handleSignOut = (e) => {
+    e.preventDefault();
     dispatch(clearUser());
-    navigate("/login");
+    window.location.href = "/";
   };
 
   const handleLogo = () => {
