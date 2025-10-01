@@ -17,14 +17,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Router>
       <Header />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/" element={<Home />} />
         <Route
           path="/profile"
           element={

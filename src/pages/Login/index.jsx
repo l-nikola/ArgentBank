@@ -24,7 +24,7 @@ export default function Login() {
           token: token,
         })
       );
-      navigate("/");
+      navigate("/profile");
     } catch (error) {
       setError(error.message);
     }
