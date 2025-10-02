@@ -1,0 +1,245 @@
+swagger: "2.0"
+info:
+  title: Bank Argent API documentation V2
+  description: Contains all available API endpoints V2 in this codebase
+  version: "2.0.0"
+  termsOfService: "http://swagger.io/terms/"
+host: localhost:3001
+basePath: /api/v2
+schemes:
+  - http
+paths:
+  /user/transactions:
+    get:
+      tags:
+        - Transactions Module
+      summary: All current transactions
+      description: API for All current transactions
+      parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: All transactions retrieved successfully
+          schema:
+            $ref: "#/definitions/Transactions"
+        "400":
+          description: Invalid Fields
+        "401":
+          description: Unauthorized
+        "404":
+          description: Transactions not found
+        "500":
+          description: Internal Server Error
+    post:
+      tags:
+        - Transactions Module
+      summary: Add transaction
+      description: API for Add transaction
+      parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          required: true
+          type: string
+        - in: body
+          name: transactionId
+          description: Transaction Payload
+          required: true
+          schema:
+            $ref: "#/definitions/Transaction"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Transaction successfully added
+          schema:
+            $ref: "#/definitions/Transaction"
+        "400":
+          description: Invalid Fields
+        "401":
+          description: Unauthorized
+        "404":
+          description: Transactions not found
+        "500":
+          description: Internal Server Error
+
+  /user/transactions/{transactionId}:
+    get:
+      tags:
+        - Transactions Module
+      summary: Current transaction
+      description: API for Current transaction
+      parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          required: true
+          type: string
+        - in: path
+          name: transactionId
+          description: Transaction ID
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Transaction retrieved successfully
+          schema:
+            $ref: "#/definitions/Transaction"
+        "400":
+          description: Invalid Fields
+        "401":
+          description: Unauthorized
+        "404":
+          description: Transaction not found
+        "500":
+          description: Internal Server Error
+
+    put:
+      tags:
+        - Transactions Module
+      summary: Edit transaction
+      description: API for Edit transaction
+      parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          required: true
+          type: string
+        - in: path
+          name: transactionId
+          description: Transaction ID
+          required: true
+          type: string
+        - in: body
+          name: transactionId
+          description: Transaction Payload
+          required: true
+          schema:
+            $ref: "#/definitions/editTransaction"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Transaction updated successfully
+          schema:
+            $ref: "#/definitions/editTransaction"
+        "400":
+          description: Invalid Fields
+        "401":
+          description: Unauthorized
+        "404":
+          description: Transaction not found
+        "500":
+          description: Internal Server Error
+
+    delete:
+      tags:
+        - Transactions Module
+      summary: Remove transaction
+      description: API for Remove transaction
+      parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          required: true
+          type: string
+        - in: path
+          name: transactionId
+          description: Transaction ID
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Transaction removed successfully
+          schema:
+            $ref: "#/definitions/Transaction"
+        "400":
+          description: Invalid Fields
+        "401":
+          description: Unauthorized
+        "404":
+          description: Transaction not found
+        "500":
+          description: Internal Server Error
+
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+definitions:
+  Transaction:
+    type: object
+    description: transaction
+    properties:
+      accountId:
+        type: string
+        description: account Id
+        example: 68b822798d8d4c49e0598cc0
+      id:
+        type: string
+        description: transaction id
+        example: 56a481094n0s1b90m7142ml9
+      date:
+        type: string
+        description: transaction date
+        example: June 20th, 2020
+      description:
+        type: string
+        description: transaction description
+        example: Golden Sun Bakery
+      amount:
+        type: number
+        description: transaction amount
+        example: 5.00
+      balance:
+        type: number
+        description: transaction balance
+        example: 2082.79
+      transactionType:
+        type: string
+        description: transaction transaction type
+        example: Electronic
+      category:
+        type: string
+        description: transaction category
+        example: Food
+      note:
+        type: string
+        description: transaction note
+        example: My notes
+
+  Transactions:
+    type: array
+    items:
+      $ref: "#/definitions/Transaction"
+
+  editTransaction:
+    type: object
+    properties:
+      id:
+        type: string
+        description: transaction id
+        example: 56a481094n0s1b90m7142ml9
+      transactionType:
+        type: string
+        description: transaction transaction type
+        example: Currency
+      category:
+        type: string
+        description: transaction category
+        example: Hygiene
+      note:
+        type: string
+        description: transaction note
+        example: My notes updated
