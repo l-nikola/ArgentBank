@@ -9,8 +9,18 @@ export default function Profile() {
       <section>
         <BankAccount
           account="Argent Bank Checking (x8349)"
-          amount={2000}
+          amount={2082.79}
           balance="Available Balance"
+        />
+        <BankAccount
+          account="Argent Bank Saving (x67124)"
+          amount={10928.42}
+          balance="Available Balance"
+        />
+        <BankAccount
+          account="Argent Bank Credit Card (x5201)"
+          amount={184.3}
+          balance="Current Balance"
         />
       </section>
     </main>
