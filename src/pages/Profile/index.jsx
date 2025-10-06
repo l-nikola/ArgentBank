@@ -1,10 +1,13 @@
 import ChangeName from "../../components/ChangeName";
 import BankAccount from "../../components/BankAccount";
+import { useSelector } from "react-redux";
 
 export default function Profile() {
+  const firstName = useSelector((state) => state.user.firstName);
+
   return (
     <main className="editName">
-      <h1>Welcome back</h1>
+      <h1>Welcome back {firstName}</h1>
       <ChangeName />
       <section>
         <BankAccount
