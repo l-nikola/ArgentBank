@@ -11,6 +11,11 @@ export default function Collapse({
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
+  const formattedBalance = balance.toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+
   return (
     <section className="collapse">
       <div className="collapse__header">
@@ -25,7 +30,7 @@ export default function Collapse({
           <p>{date}</p>
           <p>{description}</p>
           <p>${amount}</p>
-          <p>${balance}</p>
+          <p>${formattedBalance}</p>
         </div>
       </div>
 
