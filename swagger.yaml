@@ -49,9 +49,9 @@ paths:
         - in: body
           name: transactionId
           description: Transaction Payload
-          required: true
+          required: false
           schema:
-            $ref: "#/definitions/Transaction"
+            $ref: "#/definitions/AddTransaction"
       produces:
         - application/json
       responses:
@@ -120,14 +120,14 @@ paths:
           description: Transaction Payload
           required: true
           schema:
-            $ref: "#/definitions/editTransaction"
+            $ref: "#/definitions/EditTransaction"
       produces:
         - application/json
       responses:
         "200":
           description: Transaction updated successfully
           schema:
-            $ref: "#/definitions/editTransaction"
+            $ref: "#/definitions/EditTransaction"
         "400":
           description: Invalid Fields
         "401":
@@ -216,6 +216,43 @@ definitions:
         description: transaction note
         example: My notes
 
+  AllTransactions:
+    type: object
+    description: transaction
+    properties:
+      id:
+        type: string
+        description: transaction id
+        example: 56a481094n0s1b90m7142ml9
+      date:
+        type: string
+        description: transaction date
+        example: June 20th, 2020
+      description:
+        type: string
+        description: transaction description
+        example: Golden Sun Bakery
+      amount:
+        type: number
+        description: transaction amount
+        example: 5.00
+      balance:
+        type: number
+        description: transaction balance
+        example: 2082.79
+      transactionType:
+        type: string
+        description: transaction transaction type
+        example: Electronic
+      category:
+        type: string
+        description: transaction category
+        example: Food
+      note:
+        type: string
+        description: transaction note
+        example: My notes
+
   Transactions:
     type: array
     items:
@@ -228,19 +265,52 @@ definitions:
         transactions:
           type: array
           items:
-            $ref: "#/definitions/Transaction"
+            $ref: "#/definitions/AllTransactions"
 
-  editTransaction:
+  AddTransaction:
+    type: object
+    description: transaction
+    properties:
+      accountId:
+        type: string
+        description: account Id
+        example: 68b822798d8d4c49e0598cc0
+      date:
+        type: string
+        description: transaction date
+        example: June 20th, 2020
+      description:
+        type: string
+        description: transaction description
+        example: Golden Sun Bakery
+      amount:
+        type: number
+        description: transaction amount
+        example: 5.00
+      balance:
+        type: number
+        description: transaction balance
+        example: 2082.79
+      transactionType:
+        type: string
+        description: transaction transaction type
+        example: Electronic
+      category:
+        type: string
+        description: transaction category
+        example: Food
+      note:
+        type: string
+        description: transaction note
+        example: My notes
+
+  EditTransaction:
     type: object
     properties:
       id:
         type: string
         description: transaction id
         example: 56a481094n0s1b90m7142ml9
-      transactionType:
-        type: string
-        description: transaction transaction type
-        example: Currency
       category:
         type: string
         description: transaction category
